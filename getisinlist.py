@@ -23,7 +23,7 @@ def getISIN():
     base_url = "https://www.takasbank.com.tr/tr/kaynaklar/isin-kodlari/VB?page={}"
     all_data = []
     progress_bar = st.progress(0)
-    max_page_number = 20
+
     for page_number in range(1, max_page_number + 1):
         url = base_url.format(page_number)
         response = requests.get(url)
