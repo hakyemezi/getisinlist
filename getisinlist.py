@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import streamlit as st
 
+st.write("Data Source : https://www.takasbank.com.tr/tr/kaynaklar/isin-kodlari/VB")
 @st.cache_data
 def getISIN():
     url = "https://www.takasbank.com.tr/tr/kaynaklar/isin-kodlari/VB"
