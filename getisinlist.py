@@ -48,7 +48,7 @@ def getISIN():
 
 final_df = getISIN()
 
-search_keyword = st.text_input("Contract Name")
+search_keyword = st.text_input("Contract Name (This search option is only available for futures contract)")
 
 filtered_df = final_df[final_df["Sözleşme Cinsi"].str.contains(search_keyword) & final_df["Sözleşme Cinsi"].str.contains("VIS")]
 
