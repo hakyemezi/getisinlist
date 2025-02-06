@@ -50,7 +50,15 @@ final_df = getISIN()
 
 search_keyword = st.text_input("Contract Name (This search option is only available for futures contract)")
 
-filtered_df = final_df[final_df["Sözleşme Cinsi"].str.contains(search_keyword) & final_df["Sözleşme Cinsi"].str.contains("VIS")]
+filtered_df = pd.DataFrame(columns=final_df.columns)
+
+if search_keyword:
+    vis_mask = final_df["Sözleşme Cinsi"].str.contains("VIS", case=False, na=False)
+    keyword_mask = final_df.apply(
+        lambda row: row.astype(str).str.contains(search_keyword, case=False).any(),
+        axis=1
+    )
+    filtered_df = final_df[vis_mask & keyword_mask]
 
 st.dataframe(filtered_df)
 
