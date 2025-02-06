@@ -60,6 +60,6 @@ if search_keyword:
     )
     filtered_df = final_df[vis_mask & keyword_mask]
 
-st.dataframe(filtered_df)
+st.dataframe(filtered_df, use_container_width=True)
 
-st.dataframe(final_df)
+st.dataframe(final_df, use_container_width=True)
